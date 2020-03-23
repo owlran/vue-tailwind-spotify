@@ -1,12 +1,8 @@
 <template>
-  <div id="app" class="max-w-full w-full h-screen bg-gray-900">
-    <app-navigator></app-navigator>
-      <div id="nav">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
-      </div>
+  <div id="app" class="max-w-full w-full h-screen bg-gray-900 flex flex-col justify-between md:flex-row md:justify-evenly">
     <!-- </div> -->
-    <router-view/>
+    <router-view class="md:order-2"/>
+    <app-navigator class="md:order-1 md:w-auto"></app-navigator>
   </div>
 </template>
 <script>
