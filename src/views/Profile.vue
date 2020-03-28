@@ -37,40 +37,14 @@
           <p class="text-center mr-10">{{ artist.name }}</p>
         </div>
       </div>
-      <div class="top-tracks mt-10 lg:mt-0">
-        <div v-for="(track, index) in slicedTopTracks" :key="index" class="w-full flex items-center text-white justify-between py-2 truncate">
-          <div class="flex">
-            <img :src="track.album.images[1].url" alt="" class="w-12 mr-5">
-            <div class="flex flex-col w-15 truncate max-w-xs lg:max-w-xl">
-              <p class="truncate">
-                {{ track.name }}
-              </p>
-              <div class="flex">
-                <div class="truncate">
-                  <span v-for="(artist, index) in track.artists" :key="index" class="profile__artist-name truncate">
-                    {{ artist.name }}
-                  </span>
-                  <span class="truncate">
-                    {{ track.album.name }}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <div class="ml-4">
-            <p>
-              {{ track.duration_ms | formatDuration }}
-            </p>
-          </div>
-        </div>
-      </div>
+      <TracksList :tracksList="slicedTopTracks"/>
     </div>
     <a  class="button" :href="loginURL">Login</a>
   </div>
 </template>
 
 <script>
+import TracksList from '@/components/TracksList.vue';
 import {
   getUserInfo,
 } from '@/service/spotify';
@@ -84,6 +58,9 @@ export default {
       topArtists: null,
       topTracks: null,
     };
+  },
+  components: {
+    TracksList,
   },
   computed: {
     loginURL() {
