@@ -1,22 +1,38 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'Profile',
+    component: () => import(/* webpackChunkName: "profile" */ '../views/Profile.vue'),
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    path: '/profile',
+    name: 'Profile',
+    component: () => import(/* webpackChunkName: "profile" */ '../views/Profile.vue'),
+  },
+  {
+    path: '/playLists',
+    name: 'PlayLists',
+    component: () => import(/* webpackChunkName: "playLists" */ '../views/PlayLists.vue'),
+  },
+  {
+    path: '/recent',
+    name: 'Recent',
+    component: () => import(/* webpackChunkName: "recent" */ '../views/Recent.vue'),
+  },
+  {
+    path: '/topArtists',
+    name: 'topArtists',
+    component: () => import(/* webpackChunkName: "topArtists" */ '../views/TopArtists.vue'),
+  },
+  {
+    path: '/topTracks',
+    name: 'topTracks',
+    component: () => import(/* webpackChunkName: "topTracks" */ '../views/TopTracks.vue'),
   },
 ];
 
