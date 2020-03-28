@@ -1,14 +1,13 @@
 <template>
   <main class="mx-auto py-10">
     <div class="w-full bg-black-500">
-      <header class="flex justify-between">
-        <h2 class="text-white text-2xl">Top Artists</h2>
-        <div class="rangs text-white flex justify-around">
+      <BaseHeader :title="'Top Artists'">
+        <div slot="buttons">
           <button class="px-5" @click="selectPeriod('all')">All Time</button>
           <button class="px-5" @click="selectPeriod('6')">Last 6 months</button>
           <button class="px-5" @click="selectPeriod('4')">Last 4 Weeks</button>
         </div>
-      </header>
+      </BaseHeader>
       <div v-if="topArtistsList" class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-20">
         <div class="flex flex-col justify-center items-center" v-for="(artist, index) in topArtistsList" :key="index">
           <img class=" w-40 rounded-full" :src="artist.images[1].url"/>>
@@ -21,6 +20,7 @@
 </template>
 
 <script>
+import BaseHeader from '@/components/BaseHeader.vue';
 import {
   getTopArtistsShort,
   getTopArtistsMedium,
@@ -33,6 +33,9 @@ export default {
     return {
       topArtistsList: [],
     };
+  },
+  components: {
+    BaseHeader,
   },
   methods: {
     async selectPeriod(period = 'all') {
