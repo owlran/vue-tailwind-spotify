@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="max-w-full w-full h-screen bg-gray-900 flex flex-col justify-between md:flex-row md:justify-evenly">
+  <div id="app" class="max-w-full w-full md:h-screen bg-gray-900 flex flex-col justify-between md:flex-row md:justify-evenly">
     <!-- </div> -->
     <router-view class="md:order-2"/>
     <app-navigator class="md:order-1 md:w-auto"></app-navigator>
