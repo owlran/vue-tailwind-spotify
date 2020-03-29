@@ -1,8 +1,8 @@
 <template>
-  <div id="app" class="max-w-full w-full bg-gray-900 flex flex-col justify-between md:flex-row md:justify-evenly">
+  <div id="app" class="relative max-w-full w-full bg-gray-900 flex flex-col md:flex-row">
     <!-- </div> -->
-    <router-view class="md:order-2"/>
-    <app-navigator class="md:order-1 md:w-auto"></app-navigator>
+    <router-view class="md:order-2 md:pl-24 min-h-screen"/>
+    <app-navigator class="block md:order-1 md:w-24"></app-navigator>
   </div>
 </template>
 <script>

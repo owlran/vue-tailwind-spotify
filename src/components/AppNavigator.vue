@@ -1,5 +1,5 @@
 <template>
-  <div id="navigation" class="w-full flex justify-center bg-black justify-around md:flex-col md:justify-between">
+  <div id="navigation" class="w-full md:fixed bottom-0 md:bottom-auto md:left-0 md:top-0 md:h-screen flex justify-center bg-black justify-around md:flex-col md:justify-between">
     <div class="hidden md:block text-white p-6">
       <a href="/">
         <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 427.652 427.652" xml:space="preserve">
