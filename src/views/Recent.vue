@@ -1,8 +1,8 @@
 <template>
-  <div class="w-1/2 bg-gray-900 mx-auto">
+  <div class="mx-auto py-10">
     <loader v-if="recentPlayed === null"></loader>
     <div class="content" v-else>
-      <p>Recent</p>
+      <BaseHeader :title="'Recent played'"></BaseHeader>
     </div>
     <div>
       <TracksList :tracksList="tracks"></TracksList>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import BaseHeader from '@/components/BaseHeader.vue';
 import Loader from '@/components/Loader.vue';
 import { getRecentlyPlayed } from '@/service/spotify';
 import TracksList from '@/components/TracksList.vue';
@@ -29,6 +30,7 @@ export default {
   components: {
     TracksList,
     Loader,
+    BaseHeader,
   },
   async mounted() {
     const res = await getRecentlyPlayed();

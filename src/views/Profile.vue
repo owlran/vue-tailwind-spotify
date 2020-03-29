@@ -11,7 +11,7 @@
           <p class="text-xl text-white">{{ userName }}</p>
         </div>
       </div>
-      <div class="stat-info flex justify-around items-center w-1/2 mx-auto mt-10 text-white mt-20 lg:max-w-lg">
+      <div class="stat-info flex justify-around items-center w-1/2 mx-auto mt-10 text-white lg:max-w-lg">
         <div class="text-center">
           <p>
             {{ followers }}

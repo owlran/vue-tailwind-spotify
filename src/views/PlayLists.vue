@@ -1,9 +1,9 @@
 <template>
-  <div class="w-1/2 mx-auto py-10">
+  <div class="mx-auto py-10 px-5">
     <Loader v-if="playLists === null"></Loader>
     <div v-else>
       <BaseHeader :title="'Play lists'"></BaseHeader>
-      <div v-if="lists" class="text-white grid grid-cols-2 lg:grid-cols-4 gap-4 mt-20">
+      <div v-if="lists" class="text-white grid grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
         <div v-for="(list, index) in lists" :key="index" class="flex flex-col justify-center items-center">
           <img :src="list.images[0].url"/>
           <p class="pt-2 text-sm text-center">

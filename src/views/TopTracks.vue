@@ -1,5 +1,5 @@
 <template>
-  <main class="w-1/2 bg-black-900 mx-auto py-10">
+  <main class="mx-auto py-10">
     <Loader v-if="topTracks === null"></Loader>
     <div v-else>
       <BaseHeader :title="'Top tracks'">
@@ -9,7 +9,7 @@
           <button class="px-5" @click="selectPeriod('4')">Last 4 Weeks</button>
         </div>
       </BaseHeader>
-      <div class="text-white mt-20">
+      <div class="text-white mt-10">
         <TracksList :tracksList="topTracks"/>
       </div>
     </div>
