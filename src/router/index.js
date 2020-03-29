@@ -5,11 +5,6 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'Profile',
-    component: () => import(/* webpackChunkName: "profile" */ '../views/Profile.vue'),
-  },
-  {
     path: '/profile',
     name: 'Profile',
     component: () => import(/* webpackChunkName: "profile" */ '../views/Profile.vue'),
@@ -33,6 +28,10 @@ const routes = [
     path: '/topTracks',
     name: 'topTracks',
     component: () => import(/* webpackChunkName: "topTracks" */ '../views/TopTracks.vue'),
+  },
+  {
+    path: '/',
+    redirect: '/profile',
   },
 ];
 
