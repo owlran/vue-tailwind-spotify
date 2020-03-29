@@ -15,8 +15,11 @@
           class="mt-5 block mx-auto"
           @click="$router.push('/playlists')"
           :text="'Back Playlists'"></BaseButton>
+        <div v-if="audioFeaturesForTracks" class="max-w-sm">
+          <FeatureChart :features="audioFeaturesForTracks && audioFeaturesForTracks.audio_features"></FeatureChart>
+        </div>
       </div>
-      <div class="tracklist mt-10 lg:ml-5">
+      <div class="tracklist mt-10 lg:ml-10">
         <div v-for="(item, index) in playlist.tracks.items" :key="index" class="text-white">
           <TrackItem :track="item.track"></TrackItem>
         </div>
@@ -34,6 +37,7 @@ import Loader from '@/components/Loader.vue';
 import BaseHeader from '@/components/BaseHeader.vue';
 import BaseButton from '@/components/BaseButton.vue';
 import TrackItem from '@/components/TrackItem.vue';
+import FeatureChart from '@/components/FeatureChart.vue';
 
 export default {
   data() {
@@ -47,6 +51,7 @@ export default {
     BaseButton,
     BaseHeader,
     TrackItem,
+    FeatureChart,
   },
   computed: {
     playListId() {
