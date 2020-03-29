@@ -38,6 +38,16 @@ const routes = [
     component: () => import(/* webpackChunkName: "topTracks" */ '../views/TopTracks.vue'),
   },
   {
+    path: '/playlists/:id',
+    name: 'playlist',
+    component: () => import(/* webpackChunkName: "topTracks" */ '../views/PlayList.vue'),
+  },
+  {
+    path: '/recommendations/:id',
+    name: 'recommendations',
+    component: () => import(/* webpackChunkName: "topTracks" */ '../views/Recommendations.vue'),
+  },
+  {
     path: '/',
     redirect: '/profile',
   },

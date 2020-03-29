@@ -5,7 +5,12 @@
       <BaseHeader :title="'Play lists'"></BaseHeader>
       <div v-if="lists" class="text-white grid grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
         <div v-for="(list, index) in lists" :key="index" class="flex flex-col justify-center items-center">
-          <img :src="list.images[0].url"/>
+          <div class="relative">
+            <img :src="list.images[0].url"/>
+            <div
+              @click="$router.push(`/playlists/${list.id}`)"
+              class="w-full h-full opacity-0 absolute top-0 left-0 hover:opacity-50 bg-black cursor-pointer"></div>
+          </div>
           <p class="pt-2 text-sm text-center">
             {{ list.name }}
           </p>
