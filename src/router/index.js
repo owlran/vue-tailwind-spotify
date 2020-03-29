@@ -1,5 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import {
+  token,
+} from '@/service/spotify';
 
 Vue.use(VueRouter);
 
@@ -8,6 +11,11 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: () => import(/* webpackChunkName: "profile" */ '../views/Profile.vue'),
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import(/* webpackChunkName: "profile" */ '../views/Login.vue'),
   },
   {
     path: '/playLists',
@@ -43,6 +51,19 @@ const router = new VueRouter({
     }
     return { x: 0, y: 0 };
   },
+});
+
+
+router.beforeEach((to, from, next) => {
+  if (token) {
+    next();
+    return;
+  }
+  if (to.path !== '/login') {
+    next('/login');
+  } else {
+    next();
+  }
 });
 
 export default router;
