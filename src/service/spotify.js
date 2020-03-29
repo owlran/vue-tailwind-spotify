@@ -21,9 +21,8 @@ const refreshAccessToken = async () => {
     const { access_token: accessToken } = data;
     setLocalAccessToken(accessToken);
     window.location.reload();
-    return;
   } catch (e) {
-    console.error(e);
+    console.log(e); // eslint-disable-line no-console
   }
 };
 
@@ -35,13 +34,13 @@ export const getAccessToken = () => {
   } = getHashParams();
 
   if (error) {
-    console.error(error);
+    console.error(error); // eslint-disable-line no-console
     refreshAccessToken();
   }
 
   // If token has expired
   if (Date.now() - getTokenTimestamp() > EXPIRATION_TIME) {
-    console.warn('Access token has expired, refreshing...');
+    console.warn('Access token has expired, refreshing...'); // eslint-disable-line no-console
     refreshAccessToken();
   }
 
