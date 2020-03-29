@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     loginURL() {
-      return 'http://localhost:8890/login';
+      return 'https://vue-tailwind-css-spotify-serve.herokuapp.com/login';
     },
   },
 };
