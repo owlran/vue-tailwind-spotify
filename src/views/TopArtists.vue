@@ -1,6 +1,7 @@
 <template>
   <main class="mx-auto py-10">
-    <div class="w-full bg-black-500">
+    <Loader v-if="topArtistsList === null"></Loader>
+    <div class="w-full bg-black-500" v-else>
       <BaseHeader :title="'Top Artists'">
         <div slot="buttons">
           <button class="px-5" @click="selectPeriod('all')">All Time</button>
@@ -21,6 +22,7 @@
 
 <script>
 import BaseHeader from '@/components/BaseHeader.vue';
+import Loader from '@/components/Loader.vue';
 import {
   getTopArtistsShort,
   getTopArtistsMedium,
@@ -31,11 +33,12 @@ export default {
   name: 'TopArtists',
   data() {
     return {
-      topArtistsList: [],
+      topArtistsList: null,
     };
   },
   components: {
     BaseHeader,
+    Loader,
   },
   methods: {
     async selectPeriod(period = 'all') {

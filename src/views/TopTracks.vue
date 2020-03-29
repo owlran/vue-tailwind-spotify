@@ -1,20 +1,24 @@
 <template>
-  <main class="w-1/2 bg-black-500 mx-auto py-10">
-    <BaseHeader :title="'Top tracks'">
-      <div slot="buttons">
-        <button class="px-5" @click="selectPeriod('all')">All Time</button>
-        <button class="px-5" @click="selectPeriod('6')">Last 6 months</button>
-        <button class="px-5" @click="selectPeriod('4')">Last 4 Weeks</button>
+  <main class="w-1/2 bg-black-900 mx-auto py-10">
+    <Loader v-if="topTracks === null"></Loader>
+    <div v-else>
+      <BaseHeader :title="'Top tracks'">
+        <div slot="buttons">
+          <button class="px-5" @click="selectPeriod('all')">All Time</button>
+          <button class="px-5" @click="selectPeriod('6')">Last 6 months</button>
+          <button class="px-5" @click="selectPeriod('4')">Last 4 Weeks</button>
+        </div>
+      </BaseHeader>
+      <div class="text-white mt-20">
+        <TracksList :tracksList="topTracks"/>
       </div>
-    </BaseHeader>
-    <div class="text-white mt-20">
-      <TracksList :tracksList="topTracks"/>
     </div>
   </main>
 </template>
 
 <script>
 import BaseHeader from '@/components/BaseHeader.vue';
+import Loader from '@/components/Loader.vue';
 import TracksList from '@/components/TracksList.vue';
 import {
   getTopTracksShort,
@@ -26,12 +30,13 @@ export default {
   name: 'TopTracks',
   data() {
     return {
-      topTracks: [],
+      topTracks: null,
     };
   },
   components: {
     BaseHeader,
     TracksList,
+    Loader,
   },
   methods: {
     async selectPeriod(period = 'all') {

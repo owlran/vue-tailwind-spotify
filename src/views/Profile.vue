@@ -1,6 +1,7 @@
 <template>
   <div class="profile bg-black-500 w-full">
-    <div class="p-10 flex flex-col justify-center items-center">
+    <Loader v-if="user === null"></Loader>
+    <div class="p-10 flex flex-col justify-center items-center" v-else>
       <p>Profile</p>
       <div class="user-avatar flex justify-center flex-col items-center">
         <div class="h-16 w-16">
@@ -48,6 +49,7 @@
 </template>
 
 <script>
+import Loader from '@/components/Loader.vue';
 import TracksList from '@/components/TracksList.vue';
 import {
   getUserInfo,
@@ -65,6 +67,7 @@ export default {
   },
   components: {
     TracksList,
+    Loader,
   },
   computed: {
     loginURL() {
