@@ -95,9 +95,6 @@ export default {
     BaseHeader,
   },
   computed: {
-    loginURL() {
-      return 'http://localhost:8890/login';
-    },
     userImg() {
       return this.user && this.user.images[0].url;
     },

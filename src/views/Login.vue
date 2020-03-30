@@ -23,7 +23,9 @@ export default {
   },
   computed: {
     loginURL() {
-      return 'https://vue-tailwind-css-spotify-serve.herokuapp.com/login';
+      return process.env.NODE_ENV === 'production'
+        ? 'https://vue-tailwind-css-spotify-serve.herokuapp.com/login'
+        : 'http://localhost:8890/login';
     },
   },
 };

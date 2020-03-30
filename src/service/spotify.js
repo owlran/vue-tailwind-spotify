@@ -17,7 +17,11 @@ const getLocalRefreshToken = () => window.localStorage.getItem('spotify_refresh_
 // Refresh the token
 const refreshAccessToken = async () => {
   try {
-    const { data } = await axios.get(`http://localhost:8890/refresh_token?refresh_token=${getLocalRefreshToken()}`);
+    const serverURL = process.env.NODE_ENV === 'production'
+      ? 'https://vue-tailwind-css-spotify-serve.herokuapp.com'
+      : 'http://localhost:8890';
+    const { data } = await axios.get(`http://${serverURL}/refresh_token?refresh_token=${getLocalRefreshToken()}`);
+
     const { access_token: accessToken } = data;
     setLocalAccessToken(accessToken);
     window.location.reload();
