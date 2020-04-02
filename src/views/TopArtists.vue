@@ -20,9 +20,8 @@
       </BaseHeader>
       <div v-if="topArtistsList" class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-20">
         <div class="flex flex-col justify-center items-center" v-for="(artist, index) in topArtistsList" :key="index">
-          <img class=" w-40 rounded-full" :src="artist.images[1].url"/>>
+          <img class=" w-40 rounded-full" :src="artist.images[1].url"/>
           <p class="text-white">{{ artist.name }}</p>
-          <P>{{ index }}</P>
         </div>
       </div>
     </div>
