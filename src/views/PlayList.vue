@@ -1,5 +1,5 @@
 <template>
-  <div class="playlist mx-auto p-10">
+  <div class="playlist mx-auto p-10 w-full">
     <Loader v-if="playlist === null"></Loader>
     <div v-else class="flex flex-col md:flex-row">
       <div class="text-white">
@@ -8,7 +8,7 @@
         <p class="uppercase text-center pt-5">{{ playlist.tracks.total }} tracks</p>
         <img :src="playlist.images[0].url" alt="" class="hidden md:block md:mx-auto pt-5">
         <BaseButton
-          class="mt-5 block mx-auto"
+          class="mt-5 block mx-auto hidden"
           @click="$router.push(`/recommendations/${playListId}`)"
           :text="'Get Recommendations'"></BaseButton>
         <BaseButton
