@@ -1,8 +1,7 @@
 <template>
   <div class="profile bg-black-500 w-full">
     <Loader v-if="user === null"></Loader>
-    <div class="p-10 flex flex-col justify-center items-center" v-else>
-      <p>Profile</p>
+    <div class="flex flex-col justify-center items-center" v-else>
       <div class="user-avatar flex justify-center flex-col items-center">
         <div class="h-16 w-16">
           <img class="rounded-full" :src="userImg" alt="">
@@ -35,7 +34,7 @@
           :text="'Logout'"></BaseButton>
       </div>
       <div class="flex flex-col lg:flex-row lg:justify-between mt-10">
-        <div>
+        <div class="top-artists px-6">
           <div class="flex justify-between items-center align-middle py-3">
             <BaseHeader :title="'Top artists'"></BaseHeader>
             <BaseButton
@@ -51,7 +50,7 @@
             </div>
           </div>
         </div>
-        <div class="lg:ml-10">
+        <div class="top-tracks lg:ml-10 px-3">
           <div class="flex absolute-center items-center justify-between py-3">
             <BaseHeader :title="'Top tracks'"></BaseHeader>
             <BaseButton
