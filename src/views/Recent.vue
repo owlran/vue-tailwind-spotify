@@ -1,10 +1,10 @@
 <template>
-  <div class="mx-auto py-10">
+  <div class="mx-auto py-10 w-full">
     <loader v-if="recentPlayed === null"></loader>
     <div class="content" v-else>
       <BaseHeader :title="'Recent played'"></BaseHeader>
     </div>
-    <div>
+    <div class="p-6">
       <TracksList :tracksList="tracks"></TracksList>
     </div>
   </div>
