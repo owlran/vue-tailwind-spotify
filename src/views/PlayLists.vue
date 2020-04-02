@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto py-10 px-5">
+  <div class="mx-auto py-10 px-5 md:ml-10">
     <Loader v-if="playLists === null"></Loader>
     <div v-else>
       <BaseHeader :title="'Play lists'"></BaseHeader>

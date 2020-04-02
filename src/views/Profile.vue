@@ -1,5 +1,5 @@
 <template>
-  <div class="profile bg-black-500 w-full">
+  <div class="profile bg-black-500 w-full md:mt-10">
     <Loader v-if="user === null"></Loader>
     <div class="flex flex-col justify-center items-center" v-else>
       <div class="user-avatar flex justify-center flex-col items-center">

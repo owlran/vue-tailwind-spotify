@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto py-10 w-full">
+  <div class="mx-auto py-10 w-full md:ml-10">
     <loader v-if="recentPlayed === null"></loader>
     <div class="content" v-else>
       <BaseHeader :title="'Recent played'"></BaseHeader>

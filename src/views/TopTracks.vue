@@ -1,5 +1,5 @@
 <template>
-  <main class="w-full mx-auto py-10 px-6 min-w-full">
+  <main class="w-full mx-auto py-10 px-6 min-w-full md:ml-10">
     <Loader v-if="topTracks === null"></Loader>
     <div v-else class="px-4">
       <BaseHeader :title="'Top tracks'">
