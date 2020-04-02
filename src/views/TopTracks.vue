@@ -1,12 +1,21 @@
 <template>
-  <main class="mx-auto py-10">
+  <main class="w-full mx-auto py-10 px-6 min-w-full">
     <Loader v-if="topTracks === null"></Loader>
-    <div v-else>
+    <div v-else class="px-4">
       <BaseHeader :title="'Top tracks'">
         <div slot="buttons">
-          <button class="px-5" @click="selectPeriod('all')">All Time</button>
-          <button class="px-5" @click="selectPeriod('6')">Last 6 months</button>
-          <button class="px-5" @click="selectPeriod('4')">Last 4 Weeks</button>
+          <button
+            class="p-2 text-sm"
+            :class="{ 'period--selected': selectedIndex === 'all' }"
+            @click="selectPeriod('all')">All Time</button>
+          <button
+            class="p-2 text-sm"
+            :class="{ 'period--selected': selectedIndex === '6' }"
+            @click="selectPeriod('6')">Last 6 months</button>
+          <button
+            class="p-2 text-sm"
+            :class="{ 'period--selected': selectedIndex === '4' }"
+            @click="selectPeriod('4')">Last 4 Weeks</button>
         </div>
       </BaseHeader>
       <div class="text-white mt-10">
@@ -31,6 +40,7 @@ export default {
   data() {
     return {
       topTracks: null,
+      selectedIndex: 'all',
     };
   },
   components: {
@@ -40,6 +50,7 @@ export default {
   },
   methods: {
     async selectPeriod(period = 'all') {
+      this.selectedIndex = period;
       const callback = {
         all: getTopTracksLong,
         6: getTopTracksMedium,
@@ -54,3 +65,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.period {
+  &--selected {
+    @apply border-b-2 border-green-500
+  }
+}
+</style>
