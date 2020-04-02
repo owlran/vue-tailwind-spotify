@@ -1,6 +1,6 @@
 <template>
   <div class="w-full flex items-center text-white justify-between py-2 truncate">
-    <div class="flex">
+    <div class="flex items-start">
       <img :src="track.album.images[1].url" alt="" class="w-12 mr-5">
       <div class="flex flex-col w-15 truncate max-w-xs lg:max-w-xl">
         <p class="truncate">{{ track.name }}</p>
