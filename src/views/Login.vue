@@ -11,6 +11,7 @@
 
 <script>
 import BaseButton from '@/components/BaseButton.vue';
+import { getServerURL } from '@/utils/auth';
 
 export default {
   components: {
@@ -23,9 +24,7 @@ export default {
   },
   computed: {
     loginURL() {
-      return process.env.NODE_ENV === 'production'
-        ? 'https://vue-tailwind-css-spotify-serve.herokuapp.com/login'
-        : 'http://localhost:8890/login';
+      return `${getServerURL()}/login`;
     },
   },
 };

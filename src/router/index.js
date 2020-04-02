@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import {
-  token,
+  accessToken,
 } from '@/service/spotify';
 
 Vue.use(VueRouter);
@@ -65,7 +65,7 @@ const router = new VueRouter({
 
 
 router.beforeEach((to, from, next) => {
-  if (token) {
+  if (accessToken) {
     next();
     return;
   }

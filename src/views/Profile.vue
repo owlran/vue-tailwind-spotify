@@ -75,8 +75,8 @@ import BaseHeader from '@/components/BaseHeader.vue';
 
 import {
   getUserInfo,
-  logout,
 } from '@/service/spotify';
+import { logout } from '@/utils/auth';
 
 export default {
   data() {
