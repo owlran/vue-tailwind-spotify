@@ -4,9 +4,18 @@
     <div class="w-full bg-black-500" v-else>
       <BaseHeader :title="'Top Artists'">
         <div slot="buttons">
-          <button class="px-5" @click="selectPeriod('all')">All Time</button>
-          <button class="px-5" @click="selectPeriod('6')">Last 6 months</button>
-          <button class="px-5" @click="selectPeriod('4')">Last 4 Weeks</button>
+          <button
+            class="p-2 text-sm"
+            :class="{ 'period--selected': selectedIndex === 'all' }"
+            @click="selectPeriod('all')">All Time</button>
+          <button
+            class="p-2 text-sm"
+            :class="{ 'period--selected': selectedIndex === '6' }"
+            @click="selectPeriod('6')">Last 6 months</button>
+          <button
+            class="p-2 text-sm"
+            :class="{ 'period--selected': selectedIndex === '4' }"
+            @click="selectPeriod('4')">Last 4 Weeks</button>
         </div>
       </BaseHeader>
       <div v-if="topArtistsList" class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-20">
@@ -34,6 +43,7 @@ export default {
   data() {
     return {
       topArtistsList: null,
+      selectedIndex: 'all',
     };
   },
   components: {
@@ -42,6 +52,7 @@ export default {
   },
   methods: {
     async selectPeriod(period = 'all') {
+      this.selectedIndex = period;
       const callback = {
         all: getTopArtistsLong,
         6: getTopArtistsMedium,
