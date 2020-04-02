@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit",
-    "deploy": "git subtree push --prefix dist origin gh-pages"
+    "deploy": "git push origin `git subtree split --prefix dist master`:gh-pages --force"
   },
   "dependencies": {
     "axios": "^0.19.2",
