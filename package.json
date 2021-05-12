@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
     "vue-chartjs": "^3.5.0",
