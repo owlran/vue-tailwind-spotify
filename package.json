@@ -11,7 +11,7 @@
     "deploy": "git push origin `git subtree split --prefix dist master`:gh-pages --force"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "chart.js": "^2.9.4",
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
